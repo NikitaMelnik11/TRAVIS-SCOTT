@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #00FFFF;
+    --accent-color: #FF1493;
+    --bg-color: #000000;
+    --text-color: #FFFFFF;
+    --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+main {
+    padding-top: 60px;
+}
+
+section {
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://www.rollingstone.com/wp-content/uploads/2023/11/Travis-Scott-Talks-Astroworld.jpg?crop=0px%2C16px%2C1800px%2C1014px&resize=1600%2C900');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--secondary-color);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent-color);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(54px, 9999px, 70px, 0);
+    }
+    20% {
+        clip: rect(67px, 9999px, 41px, 0);
+    }
+    40% {
+        clip: rect(16px, 9999px, 94px, 0);
+    }
+    60% {
+        clip: rect(43px, 9999px, 75px, 0);
+    }
+    80% {
+        clip: rect(84px, 9999px, 86px, 0);
+    }
+    100% {
+        clip: rect(16px, 9999px, 86px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(36px, 9999px, 2px, 0);
+    }
+    20% {
+        clip: rect(80px, 9999px, 91px, 0);
+    }
+    40% {
+        clip: rect(93px, 9999px, 46px, 0);
+    }
+    60% {
+        clip: rect(69px, 9999px, 81px, 0);
+    }
+    80% {
+        clip: rect(85px, 9999px, 34px, 0);
+    }
+    100% {
+        clip: rect(16px, 9999px, 68px, 0);
+    }
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px  rgba(0, 255, 255, 0.5);
+}
+
+.cta-button, .ticket-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    margin-top: 1rem;
+    background: var(--gold-gradient);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cinzel', serif;
+}
+
+.cta-button::before, .ticket-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: all 0.6s;
+}
+
+.cta-button:hover::before, .ticket-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover, .ticket-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+.album-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.album-cover {
+    width: 400px;
+    height: 400px;
+    background-image: url('https://media.npr.org/assets/img/2021/11/16/gettyimages-1235223332_sq-e88ad790d447bd7dfcb0c1571047db26d39a8ee0.jpg');
+    background-size: cover;
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+    border: 5px solid var(--primary-color);
+}
+
+.album-cover:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.album-info {
+    text-align: left;
+    max-width: 400px;
+}
+
+.album-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.track-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.track-list h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.track-list ol {
+    list-style-type: none;
+    counter-reset: item;
+}
+
+.track-list li {
+    counter-increment: item;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.track-list li::before {
+    content: counter(item);
+    background: var(--gold-gradient);
+    color: var(--bg-color);
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tour-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tour-list {
+    list-style-type: none;
+}
+
+.tour-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.tour-list .date {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.tour-list .city {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.tour-list .venue {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.gallery-item {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.vip-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.vip-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vip-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.vip-item.featured {
+    background: var(--gold-gradient);
+    color: var(--bg-color);
+    transform: scale(1.05);
+}
+
+.vip-item h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.vip-item.featured h3 {
+    color: var(--bg-color);
+}
+
+.vip-item ul {
+    list-style-type: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.vip-item ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.vip-item ul li::before {
+    content: '✧';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.vip-item.featured ul li::before {
+    color: var(--bg-color);
+}
+
+#newsletter-form {
+    display: flex;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+#newsletter-form input {
+    flex-grow: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+#newsletter-form button {
+    border-radius: 0 50px 50px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: var(--gold-gradient);
+    color: var(--bg-color);
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 6rem;
+    }
+
+    .album-container {
+        flex-direction: column;
+    }
+
+    .vip-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vip-item {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .tour-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .tour-list .venue {
+        margin: 0.5rem 0;
+    }
+
+    #newsletter-form {
+        flex-direction: column;
+    }
+
+    #newsletter-form input,
+    #newsletter-form button {
+        width: 100%;
+        border-radius: 50px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+#particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
